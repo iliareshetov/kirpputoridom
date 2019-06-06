@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{default}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bookings</title>
+</head>
+<body>
+
+<div layout:fragment="page_content" id="page_content">
+    <div class="container">
+
+
+        <form action="#" th:action="@{/createBooking}" th:object="${bookingForm}" method="post">
+            <div class="form-row">
+
+                <h5 class="font-weight-normal px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">Book a Table</h5>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="firstName">First Name</label>
+                    <input type="text" th:field="*{firstName}" class="form-control" id="firstName"
+                           placeholder="First Name">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" th:field="*{lastName}" class="form-control" id="lastName"
+                           placeholder="Last Name">
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="Email">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="text" th:field="*{phoneNumber}" class="form-control" id="phoneNumber">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="numberOfWeeks">Number Of Weeks</label>
+                    <select class="custom-select" id="numberOfWeeks" th:field="*{numberOfWeeks}">
+                        <option th:value="1" th:text="1"></option>
+                        <option th:value="2" th:text="2"></option>
+                        <option th:value="4" th:text="4"></option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="startDate">Estimated Start Date</label>
+                    <input type="text" th:field="*{startDate}" class="form-control" id="startDate">
+                </div>
+            </div>
+
+
+
+
+
+<!--
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="clientReference">Reference</label>
+                    <input type="text" th:field="*{clientReference}" class="form-control" id="clientReference"
+                           placeholder="Reference ID">
+                </div>
+            </div>
+
+-->
+
+            <!--<input type="text" class="form-control" id="datepicker-example">-->
+          <!--  <div class="form-row">
+                <div class="custom-control custom-toggle my-2">
+                    <input type="checkbox" id="customToggle1" name="customToggle1" class="custom-control-input" checked>
+                    <label class="custom-control-label" for="customToggle1">Create My Account</label>
+                </div>
+            </div>
+-->
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
+                                data-target="#exampleModal">
+                            Book
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Type here!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Nope</button>
+                            <button type="submit" class="btn btn-primary">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<th:block layout:fragment="scripts">
+
+    <script type="text/javascript">
+
+$(document).ready(function() {
+  var week = getUrlParameter('week');
+  $("#numberOfWeeks").val(week);
+});
+
+  $('#startDate').datepicker({
+      calendarWeeks: true,
+      autoclose: true,
+      todayHighlight: true
+  });
+
+
+    </script>
+
+</th:block>
+</body>
+</html>

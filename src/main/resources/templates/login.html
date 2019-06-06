@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{default}">
+
+<head>
+    <title>Spring Security Tutorial</title>
+
+</head>
+
+<body>
+
+
+<div layout:fragment="page_content" id="page_content">
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h2 class="display-4">Kirpattori DoM</h2>
+        <p class="lead">The Self-Service Flea Market.</p>
+    </div>
+
+    <div class="container">
+
+        <div class="py-4">
+            <div class="row">
+                <div class="card-deck">
+                    <div class="col-md-12 col-lg-4">
+                        <div class="card mb-4">
+                            <img class="card-img-top" src="/images/bargain-blouse-bright-1078958.jpg"
+                                 alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">Become A Seller </h4>
+                                <p class="card-text">It's easier than you think , Just Book a table for <strong>1 Week</strong> and We will sell it for you.</p>
+                                <a class="btn btn-primary btn-pill btn-lg"  th:text="${homePageCard1.amount}" th:href="@{/create_booking(week=1)}"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-lg-4">
+                        <div class="card mb-4">
+                            <img class="card-img-top" src="/images/dining-room-interior-kitchen-5706.jpg"
+                                 alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">Everything Sells!</h4>
+                                <p class="card-text">Be it anything furniture , clothes or utensils get it in.You can also book a table for <b>2 Weeks.</b> </p>
+                                <a class="btn btn-primary btn-pill btn-lg" th:text="${homePageCard2.amount}" th:href="@{/create_booking(week=2)}"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-lg-4">
+                        <div class="card mb-4">
+                            <img class="card-img-top" src="/images/chocolate-cloth-cooking-pot-1740890.jpg"
+                                 alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">Are You Renovating?</h4>
+                                <p class="card-text">If you have a lot of good stuff to give away cause of renovation. Book a table for <b>1 month</b> and save more.</p>
+                                <a class="btn btn-primary btn-pill btn-lg" th:text="${homePageCard3.amount}" th:href="@{/create_booking(week=4)}"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="our-services" class="our-services section py-4">
+            <h3 class="section-title text-center my-5">Why choose us?</h3>
+            <!-- Features -->
+            <div class="features py-4 mb-4">
+                <div class="container">
+                    <div class="row">
+                        <div class="feature py-4 col-md-6 d-flex">
+                            <div class="px-4">
+                                <h5>Trustworthy &amp; Visible</h5>
+                                <p>We have been operating in the City since 2011 </p>
+                            </div>
+                        </div>
+                        <div class="feature py-4 col-md-6 d-flex">
+                            <div class="px-4">
+                                <h5>Multi-Lingual</h5>
+                                <p>You can contact us in Finnish, English or Russian and We will be there to assist you.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="feature py-4 col-md-6 d-flex">
+                            <div class="px-4">
+                                <h5>Clean &amp; Well maintained </h5>
+                                <p>Quisque mollis mi ac aliquet accumsan. Sed sed dapibus libero. Nullam luctus purus duis sensibus signiferumque.</p>
+                            </div>
+                        </div>
+                        <div class="feature py-4 col-md-6 d-flex">
+                            <div class="px-4">
+                                <h5>Safety</h5>
+                                <p>Quisque mollis mi ac aliquet accumsan. Sed sed dapibus libero. Nullam luctus purus duis sensibus signiferumque.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- / Features -->
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--<div id="instafeed"></div>-->
+</div>
+
+
+</body>
+</html>
