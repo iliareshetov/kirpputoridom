@@ -1,15 +1,10 @@
 package com.example.hyperlearner.controller;
 
-import com.example.hyperlearner.model.Appointment;
 import com.example.hyperlearner.model.HomePageCard;
 import com.example.hyperlearner.model.User;
 import com.example.hyperlearner.service.AppointmentService;
 import com.example.hyperlearner.service.HomePageCardService;
 import com.example.hyperlearner.service.UserService;
-import com.example.hyperlearner.util.AppUtils;
-import com.example.hyperlearner.util.ReferenceGenerator;
-import com.google.gson.*;
-import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,19 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.net.ssl.HttpsURLConnection;
 import javax.validation.Valid;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.sql.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class LoginController {
@@ -58,7 +42,7 @@ public class LoginController {
         }
         modelAndView.setViewName("login");
 
-/*
+/***************************** DO NOT REMOVE THIS CODE********************
 
         String httpsURL = "https://api.instagram.com/v1/users/self/media/recent/?access_token=13299104599.7766668.8b8021f8746848f3b437bfdd4eeace6e";
         try {
@@ -96,6 +80,8 @@ public class LoginController {
 
 
 
+
+
     @RequestMapping(value="/registration", method = RequestMethod.GET)
     public ModelAndView registration(){
         ModelAndView modelAndView = new ModelAndView();
@@ -126,7 +112,7 @@ public class LoginController {
         return modelAndView;
     }
 
-    @RequestMapping(value="/admin/home", method = RequestMethod.GET)
+   /* @RequestMapping(value="/admin/home", method = RequestMethod.GET)
     public ModelAndView home(){
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -135,6 +121,6 @@ public class LoginController {
         modelAndView.addObject("adminMessage","Content Available Only for Users with Admin Role");
         modelAndView.setViewName("admin/home");
         return modelAndView;
-    }
+    }*/
 
 }

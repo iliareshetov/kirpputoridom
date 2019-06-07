@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{default}">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+</head>
+<body>
+
+<div layout:fragment="page_content" id="page_content">
+    <div class="container">
+        <h5 class="font-weight-normal px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">Admin Panel</h5>
+
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Links</th>
+                <th scope="col">Purpose</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td><a class="btn btn-primary btn-pill"  th:href="@{/booking_list}">View Bookings</a></td>
+                <td>List of Bookings</td>
+
+            </tr>
+
+            <tr>
+                <th scope="row">2</th>
+                <td><a class="btn btn-primary btn-pill"  th:href="@{/booking_list}">Other buttons will go here.</a></td>
+                <td>Some other panel</td>
+
+            </tr>
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+</div>
+
+</body>
+</html>
