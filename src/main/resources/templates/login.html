@@ -31,8 +31,8 @@
                             <img class="card-img-top" src="/images/bargain-blouse-bright-1078958.jpg"
                                  alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title">Become A Seller </h4>
-                                <p class="card-text">It's easier than you think , Just Book a table for <strong>1 Week</strong> and We will help you sell it.</p>
+                                <h4 class="card-title" th:text="${homePageCard1.title}"></h4>
+                                <p class="card-text" th:text="${homePageCard1.description}"></p>
                                 <a class="btn btn-primary btn-pill btn-lg"  th:text="${homePageCard1.amount}" th:href="@{${T(com.example.hyperlearner.util.AppConstants).TH_CREATE_BOOKING_CARD_LINK}+'1'}"></a>
 
                             </div>
@@ -44,8 +44,8 @@
                             <img class="card-img-top" src="/images/dining-room-interior-kitchen-5706.jpg"
                                  alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title">Everything Sells!</h4>
-                                <p class="card-text">Be it anything furniture , clothes or utensils get it in.You can also book a table for <b>2 Weeks.</b> </p>
+                                <h4 class="card-title" th:text="${homePageCard2.title}"></h4>
+                                <p class="card-text" th:text="${homePageCard2.description}"></p>
                                 <a class="btn btn-primary btn-pill btn-lg" th:text="${homePageCard2.amount}" th:href="@{${T(com.example.hyperlearner.util.AppConstants).TH_CREATE_BOOKING_CARD_LINK}+'2'}"></a>
                             </div>
                         </div>
@@ -56,8 +56,8 @@
                             <img class="card-img-top" src="/images/chocolate-cloth-cooking-pot-1740890.jpg"
                                  alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title">Are You Renovating?</h4>
-                                <p class="card-text">If you have a lot of good stuff to give away cause of renovation. Book a table for <b>1 month</b> and save more.</p>
+                                <h4 class="card-title" th:text="${homePageCard3.title}"></h4>
+                                <p class="card-text" th:text="${homePageCard3.description}"></p>
                                 <a class="btn btn-primary btn-pill btn-lg" th:text="${homePageCard3.amount}" th:href="@{${T(com.example.hyperlearner.util.AppConstants).TH_CREATE_BOOKING_CARD_LINK}+'4'}"></a>
                             </div>
                         </div>
