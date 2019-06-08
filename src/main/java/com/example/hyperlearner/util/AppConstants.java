@@ -16,4 +16,11 @@ public class AppConstants {
 
     public static final String TH_CREATE_BOOKING_CARD_LINK = "/create_booking?week=";
 
+
+
+
+    public static final String HOME_PAGE_TITLE = "Home";
+    public static final String BOOKING_FORM_TITLE = "Booking form";
+    public static final String ADMIN_PANEL_TITLE = "Admin Panel";
+
 }
