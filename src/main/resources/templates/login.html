@@ -5,7 +5,7 @@
       layout:decorate="~{default}">
 
 <head>
-    <title>Spring Security Tutorial</title>
+    <title th:text="Home"></title>
 
 </head>
 
@@ -16,8 +16,8 @@
 
 
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h2 class="display-4" th:text="${T(com.example.hyperlearner.util.AppConstants).APPLICATION_NAME}"></h2>
-        <p class="lead">The Self-Service Flea Market.</p>
+        <h2 class="display-4 " th:text="${T(com.example.hyperlearner.util.AppConstants).APPLICATION_NAME}"></h2>
+        <p class="lead font-italic">The Self-Service Flea Market.</p>
         <!--<h1 th:text="#{greeting}"></h1>-->
     </div>
     <div class="container">
