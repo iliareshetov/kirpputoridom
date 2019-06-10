@@ -24,7 +24,7 @@
         <div class="example">
             <nav class="shadow-lg navbar navbar-expand-lg navbar-light bg-light mb-4">
                 <img src="/images/logo.png" alt="Example Navbar 1" class="mr-2" height="30">
-                <a class="navbar-brand" href="login" th:href="@{/login}">DoM</a>
+                <a class="navbar-brand" href="home" th:href="@{/home}">DoM</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown-1"
                         aria-controls="navbarNavDropdown-1" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown-1">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="login" th:href="@{/login}">Home
+                            <a class="nav-link" href="home" th:href="@{/home}">Home
 
                             </a>
                         </li>
@@ -185,6 +185,10 @@ return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterNam
 
 
 </script>
+
+
+
+
 
 
 <th:block layout:fragment="scripts">

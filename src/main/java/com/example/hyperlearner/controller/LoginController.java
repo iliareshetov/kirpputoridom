@@ -31,8 +31,8 @@ public class LoginController {
     private HomePageCardService homePageCardService;
 
 
-    @RequestMapping(value={"/", "/login"}, method = RequestMethod.GET)
-    public ModelAndView login(){
+    @RequestMapping(value={"/"}, method = RequestMethod.GET)
+    public ModelAndView getHomePage(){
         ModelAndView modelAndView = new ModelAndView();
         int i = 1;
         List<HomePageCard> homePageCardList = homePageCardService.getHomePageCards();
@@ -40,7 +40,7 @@ public class LoginController {
             modelAndView.addObject("homePageCard"+i, homePageCard);
             i++;
         }
-        modelAndView.setViewName("login");
+        modelAndView.setViewName("home");
 
 /***************************** DO NOT REMOVE THIS CODE********************
 

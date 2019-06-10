@@ -53,11 +53,6 @@ public class AppointmentController {
         return "booking_detail";
     }
 
-    @PostMapping("/submitBooking")
-    public String submitBooking(@ModelAttribute Appointment appointment, Model model) {
-       appointmentService.saveAppointment(appointment);
-       return "login";
-    }
 
 
    /* @PostMapping("/adduser")
