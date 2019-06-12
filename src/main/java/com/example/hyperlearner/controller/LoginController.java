@@ -31,7 +31,7 @@ public class LoginController {
     private HomePageCardService homePageCardService;
 
 
-    @RequestMapping(value={"/"}, method = RequestMethod.GET)
+    @RequestMapping(value={"/","/home"}, method = RequestMethod.GET)
     public ModelAndView getHomePage(){
         ModelAndView modelAndView = new ModelAndView();
         int i = 1;

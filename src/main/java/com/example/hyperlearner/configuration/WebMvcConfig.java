@@ -1,8 +1,10 @@
 package com.example.hyperlearner.configuration;
 
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -25,23 +27,36 @@ public class WebMvcConfig implements WebMvcConfigurer {
     }
 
 
-    @Bean
-    public LocaleResolver localeResolver() {
-        SessionLocaleResolver slr = new SessionLocaleResolver();
-        slr.setDefaultLocale(Locale.US);
-        return slr;
+    @Bean(name = "localeResolver")
+    public LocaleResolver getLocaleResolver()  {
+        SessionLocaleResolver resolver= new SessionLocaleResolver();
+        resolver.setDefaultLocale(Locale.ENGLISH);
+        return resolver;
     }
 
-    @Bean
-    public LocaleChangeInterceptor localeChangeInterceptor() {
-        LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
-        lci.setParamName("lang");
-        return lci;
+    @Bean(name = "messageSource")
+    public MessageSource getMessageResource()  {
+        ReloadableResourceBundleMessageSource messageResource= new ReloadableResourceBundleMessageSource();
+
+        // Read i18n/messages_xxx.properties file.
+        // For example: i18n/messages_en.properties
+        messageResource.setBasename("classpath:i18n/messages");
+        messageResource.setDefaultEncoding("UTF-8");
+        messageResource.setCacheSeconds(1);
+        messageResource.setUseCodeAsDefaultMessage(true);
+        return messageResource;
+    }
+
+    @Bean(name="localeInterceptor")
+    public LocaleChangeInterceptor getLocaleInterceptor(){
+        LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
+        interceptor.setParamName("lang");
+        return interceptor;
     }
 
     @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(localeChangeInterceptor());
+    public void addInterceptors(InterceptorRegistry interceptorRegistry) {
+        interceptorRegistry.addInterceptor(getLocaleInterceptor());
     }
 
 }

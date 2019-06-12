@@ -16,8 +16,7 @@
 
         <form action="#" th:action="@{/createBooking}" th:object="${bookingForm}" method="post">
             <div class="form-row">
-
-                <h5 class="font-weight-normal px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">Book a Table</h5>
+                <h5 class="font-weight-normal px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" th:utext="#{label.bookTable}"></h5>
             </div>
 
 
