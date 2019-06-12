@@ -1,10 +1,10 @@
 package com.example.hyperlearner.controller;
 
 import com.example.hyperlearner.model.HomePageCard;
-import com.example.hyperlearner.model.User;
+
 import com.example.hyperlearner.service.AppointmentService;
 import com.example.hyperlearner.service.HomePageCardService;
-import com.example.hyperlearner.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,9 +20,9 @@ import java.util.List;
 @Controller
 public class LoginController {
 
-    @Autowired
+   /* @Autowired
     private UserService userService;
-
+*/
     @Autowired
     private AppointmentService appointmentService;
 
@@ -81,7 +81,7 @@ public class LoginController {
 
 
 
-
+/*
     @RequestMapping(value="/registration", method = RequestMethod.GET)
     public ModelAndView registration(){
         ModelAndView modelAndView = new ModelAndView();
@@ -110,7 +110,7 @@ public class LoginController {
 
         }
         return modelAndView;
-    }
+    }*/
 
    /* @RequestMapping(value="/admin/home", method = RequestMethod.GET)
     public ModelAndView home(){

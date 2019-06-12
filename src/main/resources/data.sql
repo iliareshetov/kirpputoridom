@@ -1,8 +1,4 @@
-insert into student
-values(10001,'Ranga', 'E1234567');
 
-insert into student
-values(10002,'Ravi', 'A1234568');
 
 
 insert into home_page_card
@@ -15,6 +11,4 @@ insert into home_page_card
 values(3,'€100','If you have a lot of good stuff to give away cause of renovation. Book a table for 1 month and save more.','Are You Renovating?');
 
 
-insert into role
-values(1,'ADMIN');
 

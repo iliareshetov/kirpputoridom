@@ -1,9 +1,6 @@
 package com.example.hyperlearner.controller;
 
 
-import com.example.hyperlearner.dto.BookCreateDTO;
-import com.example.hyperlearner.model.Book;
-import com.example.hyperlearner.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +14,7 @@ import java.util.List;
 @Controller
 public class ListController {
 
-
+/*
     @Autowired
     private BookService bookService;
 
@@ -57,7 +54,7 @@ public class ListController {
         bookService.saveBooks(form.getBooks());
         model.addAttribute("books", bookService.findAll());
         return "redirect:/all";
-    }
+    }*/
 }
 
 
