@@ -1,6 +1,7 @@
 package com.example.hyperlearner.controller;
 
 
+import com.example.hyperlearner.dto.AppointmentForm;
 import com.example.hyperlearner.model.Appointment;
 import com.example.hyperlearner.service.AppointmentService;
 import com.example.hyperlearner.util.AppUtils;
@@ -32,25 +33,27 @@ public class AppointmentController {
 
 
     @PostMapping("/createBooking")
-    public String createBooking(@ModelAttribute Appointment bookingForm, Model model) {
-
+    public String createBooking(@ModelAttribute AppointmentForm bookingForm, Model model) {
         Appointment appointment = new Appointment();
         appointment.setAppointmentReference(appointmentService.getAppointmentRef());
         appointment.setCreateTime(AppUtils.getServerTime());
         appointment.setRevisionTime(AppUtils.getServerTime());
         appointment.setActiveFlag(true);
-        appointment.setFirstName(bookingForm.getFirstName());
-        appointment.setLastName(bookingForm.getLastName());
-        appointment.setEmail(bookingForm.getEmail());
-        appointment.setClientReference(bookingForm.getClientReference());
-        appointment.setPhoneNumber(bookingForm.getPhoneNumber());
-        appointment.setAmount(new BigDecimal(200));
         appointment.setStatus(1);
-        appointment.setNumberOfWeeks(bookingForm.getNumberOfWeeks());
-        appointment.setStartDate(bookingForm.getStartDate());
+        populateAppointment(bookingForm,appointment);
         appointmentService.saveAppointment(appointment);
         model.addAttribute("appointment", appointment);
         return "booking_detail";
+    }
+
+    private void populateAppointment(AppointmentForm bookingForm,Appointment appointment){
+        appointment.setFirstName(bookingForm.getFirstName());
+        appointment.setLastName(bookingForm.getLastName());
+        appointment.setEmail(bookingForm.getEmail());
+        appointment.setPhoneNumber(bookingForm.getPhoneNumber());
+        appointment.setAmount(new BigDecimal(200));
+        appointment.setNumberOfWeeks(Integer.parseInt(bookingForm.getNumberOfWeeks()));
+        appointment.setStartDate(AppUtils.parseDateWithoutTimeStamp(bookingForm.getStartDate()));
     }
 
 

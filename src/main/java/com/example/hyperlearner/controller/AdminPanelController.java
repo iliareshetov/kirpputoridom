@@ -31,8 +31,11 @@ public class AdminPanelController {
 
 
     @GetMapping("/booking_list")
-    public String showCreateForm() {
-        return "booking_list";
+    public ModelAndView showAllBookings() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("booking_list");
+        modelAndView.addObject("appointments",appointmentService.getAllAppointments());
+        return modelAndView;
     }
 
 }

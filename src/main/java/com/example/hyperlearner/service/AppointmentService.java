@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Component
 @Service("appointmentService")
 public class AppointmentService {
@@ -21,6 +23,10 @@ public class AppointmentService {
     public Appointment saveAppointment(Appointment appointment) {
         appointmentRepository.save(appointment);
         return appointment;
+    }
+
+    public List<Appointment> getAllAppointments() {
+        return appointmentRepository.findAll();
     }
 
     public String getAppointmentRef() {

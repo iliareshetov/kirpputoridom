@@ -19,20 +19,30 @@ public class Appointment {
     @GeneratedValue(generator = "appointment_id")
     @Column(name="appointment_id")
     private String appointmentId;
-
+    @Column(name="appointment_ref")
     private String appointmentReference;
+    @Column(name="create_time")
     private Timestamp createTime;
+    @Column(name="revision_time")
     private Timestamp revisionTime;
-    private String clientReference;
+    @Column(name="status")
     private int status;
+    @Column(name="active_flag")
     private boolean activeFlag;
+    @Column(name="email")
     private String email;
+    @Column(name="phone_number")
     private String phoneNumber;
+    @Column(name="number_of_weeks")
     private int numberOfWeeks;
+    @Column(name="amount")
     private BigDecimal amount;
+    @Column(name="first_name")
     private String firstName;
-    private String LastName;
-    private String startDate;
+    @Column(name="last_name")
+    private String lastName;
+    @Column(name="start_date")
+    private Date startDate;
 
 
 
@@ -100,13 +110,6 @@ public class Appointment {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getClientReference() {
-        return clientReference;
-    }
-
-    public void setClientReference(String clientReference) {
-        this.clientReference = clientReference;
-    }
 
     public int getNumberOfWeeks() {
         return numberOfWeeks;
@@ -132,20 +135,22 @@ public class Appointment {
         this.firstName = firstName;
     }
 
+
+
+
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
-
-    public String getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 }
