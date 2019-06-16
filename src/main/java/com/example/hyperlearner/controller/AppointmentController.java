@@ -51,7 +51,7 @@ public class AppointmentController {
         appointment.setLastName(bookingForm.getLastName());
         appointment.setEmail(bookingForm.getEmail());
         appointment.setPhoneNumber(bookingForm.getPhoneNumber());
-        appointment.setAmount(new BigDecimal(200));
+        appointment.setAmount(new BigDecimal(bookingForm.getAmount()));
         appointment.setNumberOfWeeks(Integer.parseInt(bookingForm.getNumberOfWeeks()));
         appointment.setStartDate(AppUtils.parseDateWithoutTimeStamp(bookingForm.getStartDate()));
     }

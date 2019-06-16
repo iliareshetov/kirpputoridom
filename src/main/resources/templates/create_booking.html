@@ -16,7 +16,8 @@
 
         <form action="#" th:action="@{/createBooking}" th:object="${bookingForm}" method="post">
             <div class="form-row">
-                <h5 class="font-weight-normal px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" th:utext="#{label.bookTable}"></h5>
+                <h5 class="font-weight-normal px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"
+                    th:utext="#{label.bookTable}"></h5>
             </div>
 
 
@@ -62,28 +63,14 @@
             </div>
 
 
-
-
-
-<!--
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="clientReference">Reference</label>
-                    <input type="text" th:field="*{clientReference}" class="form-control" id="clientReference"
-                           placeholder="Reference ID">
+                    <label for="amount">Amount</label>
+                    <input type="text" th:field="*{amount}" class="form-control" id="amount" readonly>
+
                 </div>
             </div>
 
--->
-
-            <!--<input type="text" class="form-control" id="datepicker-example">-->
-          <!--  <div class="form-row">
-                <div class="custom-control custom-toggle my-2">
-                    <input type="checkbox" id="customToggle1" name="customToggle1" class="custom-control-input" checked>
-                    <label class="custom-control-label" for="customToggle1">Create My Account</label>
-                </div>
-            </div>
--->
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
@@ -108,7 +95,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            Type here!
+                            Confirm Booking?
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Nope</button>
@@ -126,17 +113,40 @@
 
     <script type="text/javascript">
 
-$(document).ready(function() {
-  var week = getUrlParameter('week');
-  $("#numberOfWeeks").val(week);
-});
+        $(document).ready(function () {
+            var week = getUrlParameter('week');
+            $("#numberOfWeeks").val(week);
+            if (week === '1') {
+                $('#amount').val('30');
+            }
+            if (week === '2') {
+                $('#amount').val('55');
+            }
+            if (week === '4') {
+                $('#amount').val('100');
+            }
+        });
 
-  $('#startDate').datepicker({
-      calendarWeeks: true,
-      autoclose: true,
-      todayHighlight: true
-  });
+        $('#startDate').datepicker({
+            calendarWeeks: true,
+            autoclose: true,
+            todayHighlight: true
+        });
 
+
+
+        $('#numberOfWeeks').change(function () {
+            var numberOfWeeks = $(this).children("option:selected").val();
+            if (numberOfWeeks === '1') {
+                $('#amount').val('30');
+            } else if (numberOfWeeks === '2') {
+                $('#amount').val('55');
+            } else if (numberOfWeeks === '4') {
+                $('#amount').val('100');
+            }
+
+
+        });
 
     </script>
 
