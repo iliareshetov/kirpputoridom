@@ -20,9 +20,7 @@ import java.util.List;
 @Controller
 public class LoginController {
 
-   /* @Autowired
-    private UserService userService;
-*/
+
     @Autowired
     private AppointmentService appointmentService;
 
@@ -41,86 +39,19 @@ public class LoginController {
             i++;
         }
         modelAndView.setViewName("home");
-
-/***************************** DO NOT REMOVE THIS CODE********************
-
-        String httpsURL = "https://api.instagram.com/v1/users/self/media/recent/?access_token=13299104599.7766668.8b8021f8746848f3b437bfdd4eeace6e";
-        try {
-            URL myURL = new URL(httpsURL);
-            HttpsURLConnection conn = (HttpsURLConnection)myURL.openConnection();
-            InputStream is = conn.getInputStream();
-            InputStreamReader isr = new InputStreamReader(is);
-            BufferedReader br = new BufferedReader(isr);
-            String inputLine;
-            StringBuilder apiJson = new StringBuilder();
-
-            while ((inputLine = br.readLine()) != null) {
-                System.out.println(inputLine);
-                apiJson.append(inputLine);
-            }
-            br.close();
-            modelAndView.addObject("apiJson",apiJson.toString());
-
-            JsonParser jsonParser = new JsonParser();
-            JsonObject objectFromString = jsonParser.parse(apiJson.toString()).getAsJsonObject();
-            JsonElement fullName = objectFromString.get("data");
-            modelAndView.addObject("fullName",fullName.getAsString());
-
-
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-*/
-
         return modelAndView;
     }
 
 
 
-
-/*
-    @RequestMapping(value="/registration", method = RequestMethod.GET)
-    public ModelAndView registration(){
+    @RequestMapping(value={"/gallery"}, method = RequestMethod.GET)
+    public ModelAndView getGalleryPage(){
         ModelAndView modelAndView = new ModelAndView();
-        User user = new User();
-        modelAndView.addObject("user", user);
-        modelAndView.setViewName("registration");
+        modelAndView.setViewName("gallery");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
-        ModelAndView modelAndView = new ModelAndView();
-        User userExists = userService.findUserByEmail(user.getEmail());
-        if (userExists != null) {
-            bindingResult
-                    .rejectValue("email", "error.user",
-                            "There is already a user registered with the email provided");
-        }
-        if (bindingResult.hasErrors()) {
-            modelAndView.setViewName("registration");
-        } else {
-            userService.saveUser(user);
-            modelAndView.addObject("successMessage", "User has been registered successfully");
-            modelAndView.addObject("user", new User());
-            modelAndView.setViewName("registration");
 
-        }
-        return modelAndView;
-    }*/
 
-   /* @RequestMapping(value="/admin/home", method = RequestMethod.GET)
-    public ModelAndView home(){
-        ModelAndView modelAndView = new ModelAndView();
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByEmail(auth.getName());
-        modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
-        modelAndView.addObject("adminMessage","Content Available Only for Users with Admin Role");
-        modelAndView.setViewName("admin/home");
-        return modelAndView;
-    }*/
 
 }
