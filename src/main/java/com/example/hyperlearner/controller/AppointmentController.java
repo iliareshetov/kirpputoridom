@@ -24,14 +24,6 @@ public class AppointmentController {
 
 
 
-    @GetMapping("/create_booking")
-    public String showCreateForm(Model model) {
-        Appointment appointment = new Appointment();
-        model.addAttribute("bookingForm", appointment);
-        return "create_booking";
-    }
-
-
     @PostMapping("/createBooking")
     public String createBooking(@ModelAttribute AppointmentForm bookingForm, Model model) {
         Appointment appointment = new Appointment();
@@ -56,18 +48,6 @@ public class AppointmentController {
         appointment.setStartDate(AppUtils.parseDateWithoutTimeStamp(bookingForm.getStartDate()));
     }
 
-
-
-   /* @PostMapping("/adduser")
-    public String addUser(@Valid User user, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "add-user";
-        }
-
-        userRepository.save(user);
-        model.addAttribute("users", userRepository.findAll());
-        return "index";
-    }*/
 
 
 }

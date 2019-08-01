@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository("homePageCardRepository")
 public interface HomePageCardRepository extends JpaRepository<HomePageCard, Integer> {
-    //HomePageCard findById(Integer cardNumber);
+
 }

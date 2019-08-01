@@ -1,6 +1,7 @@
 package com.example.hyperlearner.controller;
 
 
+import com.example.hyperlearner.HyperLearnerApplication;
 import com.example.hyperlearner.service.AppointmentService;
 import com.example.hyperlearner.service.HomePageCardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,13 @@ public class AdminPanelController {
         modelAndView.addObject("appointments",appointmentService.getAllAppointments());
         return modelAndView;
     }
+
+
+    @GetMapping("/clear_cache")
+    public ModelAndView clearCacheValues() {
+        HyperLearnerApplication.homePageCardCacheMap.clear();
+        return adminHome();
+    }
+
 
 }

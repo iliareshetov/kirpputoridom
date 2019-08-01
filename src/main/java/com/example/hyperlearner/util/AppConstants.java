@@ -18,7 +18,7 @@ public class AppConstants {
 
 
 
-
+    public static final String APPOINTMENT_REF_PREFIX = "APP";
     public static final String HOME_PAGE_TITLE = "Home";
     public static final String BOOKING_FORM_TITLE = "Booking form";
     public static final String ADMIN_PANEL_TITLE = "Admin Panel";

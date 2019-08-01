@@ -20,12 +20,6 @@ import java.util.Locale;
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        return bCryptPasswordEncoder;
-    }
-
 
     @Bean(name = "localeResolver")
     public LocaleResolver getLocaleResolver()  {
@@ -37,9 +31,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Bean(name = "messageSource")
     public MessageSource getMessageResource()  {
         ReloadableResourceBundleMessageSource messageResource= new ReloadableResourceBundleMessageSource();
-
-        // Read i18n/messages_xxx.properties file.
-        // For example: i18n/messages_en.properties
         messageResource.setBasename("classpath:i18n/messages");
         messageResource.setDefaultEncoding("UTF-8");
         messageResource.setCacheSeconds(1);

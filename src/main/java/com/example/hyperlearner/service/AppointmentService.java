@@ -2,6 +2,8 @@ package com.example.hyperlearner.service;
 
 import com.example.hyperlearner.model.Appointment;
 import com.example.hyperlearner.repo.AppointmentRepository;
+import com.example.hyperlearner.util.AppConstants;
+import com.example.hyperlearner.util.AppUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -30,11 +32,10 @@ public class AppointmentService {
     }
 
     public String getAppointmentRef() {
-        String prefix = "APP";
         Long count = 0L;
         count = appointmentRepository.count();
         count = count + 1;
-        String refString = prefix + StringUtils.leftPad(count.toString(), 10, "0");
+        String refString = AppConstants.APPOINTMENT_REF_PREFIX + StringUtils.leftPad(count.toString(), 10, "0");
         return refString;
     }
 }
