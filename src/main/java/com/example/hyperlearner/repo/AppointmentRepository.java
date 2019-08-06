@@ -9,5 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository("appointmentRepository")
 public interface AppointmentRepository extends JpaRepository<Appointment, String> {
 
-    Page<Appointment> findAll(Pageable pageable);
+
+
 }
