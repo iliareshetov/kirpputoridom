@@ -12,11 +12,23 @@
     <div class="container">
         <h5 class="font-weight-normal px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">Booking List</h5>
 
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="startDatefilter">Start Date</label>
+            <input type="text" class="form-control" id="startDatefilter" maxlength="10">
+        </div>
+
+            <div class="form-group col-md-6">
+                <label for="endDatefilter">End Date</label>
+                <input type="text" class="form-control" id="endDatefilter" maxlength="10">
+            </div>
+        </div>
 
 
         <table  id="appointmentList" class="table table-hover" style="width:100%">
         <thead>
         <tr>
+            <th scope="col">Appointment Reference</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Email</th>
@@ -29,6 +41,7 @@
         </thead>
         <tbody>
         <tr th:each="appointment: ${appointmentList}">
+            <td><a class="btn btn-link"  th:text="${appointment.appointmentReference}" th:href="@{${T(com.example.hyperlearner.util.AppConstants).TH_CREATE_BOOKING_CARD_LINK}+'1'}"></a></td>
             <td th:text="${appointment.firstName}" />
             <td th:text="${appointment.lastName}" />
             <td th:text="${appointment.email}" />
@@ -49,8 +62,39 @@
 
     <script>
 
+        $('#startDatefilter').datepicker({
+            calendarWeeks: true,
+            autoclose: true,
+            todayHighlight: true
+        });
+
+        $('#endDatefilter').datepicker({
+            calendarWeeks: true,
+            autoclose: true,
+            todayHighlight: true
+        });
+
+
+
+        $.fn.dataTable.ext.search.push(
+            function( settings, data, dataIndex ) {
+                var startDate = new Date($('#startDatefilter').val()) || 0;
+                var endDate = new Date($('#endDatefilter').val()) || 0;
+                var date =  new Date( data[6] );
+               if((startDate<= date && date <=endDate) ||( isNaN( startDate ) && isNaN( endDate )) || (isNaN(startDate) &&  date <=endDate) || (startDate<= date &&  isNaN( endDate)) ){
+                   return true;
+               }
+                return false;
+            }
+        );
+
+
+
         $(document).ready(function() {
-            $('#appointmentList').DataTable();
+            var appointmentTable = $('#appointmentList').DataTable();
+            $('#startDatefilter, #endDatefilter').keyup( function() {
+                appointmentTable.draw();
+            } );
         } );
     </script>
 
