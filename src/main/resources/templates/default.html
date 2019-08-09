@@ -50,18 +50,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact Us</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="gallery" th:href="@{/gallery}" th:utext="#{label.gallery}"></a>
-                        </li>
                     </ul>
 
                     <ul class="navbar-nav">
-
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/home?lang=en}" th:text="EN">
-
-                            </a>
-                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link" th:href="@{/home?lang=fi}" th:text="FI">
@@ -69,11 +60,10 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/home?lang=ru}" th:text="RU">
+                            <a class="nav-link" th:href="@{/home?lang=en}" th:text="EN">
+
                             </a>
                         </li>
-
-
                         <li class="nav-item">
                             <a class="nav-link" href="https://www.facebook.com/kirpputoridom">
                                 <i class="fa fa-facebook"></i>
@@ -99,50 +89,13 @@
     </div>
 
 
-    <!--<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-lg">
-        <h3><a class="my-0 mr-md-auto font-weight-normal text-dark" href="login" th:href="@{/login}" />DoM</h3>
-        <nav class="my-2 my-md-0 mr-md-3">
-            <a class="p-2 text-dark" href="#">Our Services</a>
-            <a class="p-2 text-dark" href="#">Blogs</a>
-            <a class="p-2 text-dark" href="#">Testimonials</a>
-            <a class="p-2 text-dark" href="#">Pricing</a>
-        </nav>
-        <a class="btn btn-outline-primary" href="#">Sign up</a>
-    </div>
--->
+
 
     <div class="content">
         <div layout:fragment="page_content"></div>
     </div>
 
 
-    <!--<footer>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4 ">
-            <div class="container">
-                <a class="navbar-brand" href="#">DoM</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Our Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Testimonials</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </footer>-->
 
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -163,14 +116,7 @@
 
 
 
-<!--<script type="text/javascript">
-    var userFeed = new Instafeed({
-        get: 'user',
-        userId: '13299104599',
-        accessToken: '13299104599.7766668.8b8021f8746848f3b437bfdd4eeace6e'
-    });
-    userFeed.run();
-</script>-->
+
 <script type="text/javascript">
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = window.location.search.substring(1),

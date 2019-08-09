@@ -35,19 +35,21 @@
             <th scope="col">Phone</th>
             <th scope="col">Requested Number of Weeks</th>
             <th scope="col">Estimated Start Date</th>
+            <th scope="col">Status</th>
 
 
         </tr>
         </thead>
         <tbody>
         <tr th:each="appointment: ${appointmentList}">
-            <td><a class="btn btn-link"  th:text="${appointment.appointmentReference}" th:href="@{${T(com.example.hyperlearner.util.AppConstants).TH_CREATE_BOOKING_CARD_LINK}+'1'}"></a></td>
+            <td><a class="btn btn-link"  th:text="${appointment.appointmentReference}" th:href="@{${T(com.example.hyperlearner.util.AppConstants).TH_VIEW_BOOKING_DETAIL_LINK}+${appointment.appointmentId} }"></a></td>
             <td th:text="${appointment.firstName}" />
             <td th:text="${appointment.lastName}" />
             <td th:text="${appointment.email}" />
             <td th:text="${appointment.phoneNumber}" />
             <td th:text="${appointment.numberOfWeeks}" />
             <td th:text="${appointment.startDate}" />
+            <td th:text="${appointment.status}" />
         </tr>
         </tbody>
         </table>
@@ -81,7 +83,7 @@
                 var startDate = new Date($('#startDatefilter').val()) || 0;
                 var endDate = new Date($('#endDatefilter').val()) || 0;
                 var date =  new Date( data[6] );
-               if((startDate<= date && date <=endDate) ||( isNaN( startDate ) && isNaN( endDate )) || (isNaN(startDate) &&  date <=endDate) || (startDate<= date &&  isNaN( endDate)) ){
+               if((startDate <= date && date <= endDate) ||( isNaN( startDate ) && isNaN( endDate )) || (isNaN(startDate) &&  date <= endDate) || (startDate <= date &&  isNaN( endDate)) ){
                    return true;
                }
                 return false;
@@ -91,7 +93,23 @@
 
 
         $(document).ready(function() {
-            var appointmentTable = $('#appointmentList').DataTable();
+            var appointmentTable = $('#appointmentList').DataTable({
+                "columnDefs": [
+                    {
+                        "targets": [ 7 ],
+                        "visible": false,
+                        "searchable": false
+                    }
+                    ],
+                "createdRow": function ( row, data, index ) {
+                    if ( data[7].replace(/[\$,]/g, '') * 1 === 2 ){
+                        $(row).addClass("table-success");
+                    }
+                }
+
+
+
+            });
             $('#startDatefilter, #endDatefilter').keyup( function() {
                 appointmentTable.draw();
             } );

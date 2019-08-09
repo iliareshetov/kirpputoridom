@@ -15,6 +15,8 @@ public class AppConstants {
     //thymleaf URLS
 
     public static final String TH_CREATE_BOOKING_CARD_LINK = "/create_booking?week=";
+    public static final String TH_VIEW_BOOKING_DETAIL_LINK = "/booking_detail?id=";
+    public static final String TH_VIEW_BOOKING_CONFIRM_LINK = "/confirmBooking?id=";
 
 
 

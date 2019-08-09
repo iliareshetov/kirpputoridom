@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{default}">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Success</title>
+</head>
+<body>
+<div layout:fragment="page_content" id="page_content">
+    <div class="container">
+
+
+
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+
+            <strong>Booking complete!</strong>
+            <br/>
+           Booking Reference <strong th:text="${appointment.appointmentReference}"></strong> has been generated for you. We will respond to inquiries on the form within <strong> 1-2 days </strong> . If the proposed rental period is not suitable for you, you can request an electronic change of time.
+        </div>
+
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

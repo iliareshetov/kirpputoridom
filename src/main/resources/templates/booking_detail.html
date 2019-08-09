@@ -11,13 +11,75 @@
 <body>
 <div layout:fragment="page_content" id="page_content">
     <div class="container">
+        <h5 class="font-weight-normal px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">Booking Details</h5>
+
+
+        <table  id="appointmentList" class="table table-hover table-bordered" style="width:100%">
+            <tr>
+                <td width="20%">First Name</td>
+                <td th:text="${appointment.firstName}" />
+            </tr>
+
+            <tr>
+                <td width="20%">Last Name</td>
+                <td th:text="${appointment.lastName}" />
+            </tr>
+
+            <tr>
+                <td width="20%">Email</td>
+                <td th:text="${appointment.email}" />
+            </tr>
+
+            <tr>
+                <td width="20%">Phone Number</td>
+                <td th:text="${appointment.phoneNumber}" />
+            </tr>
+
+            <tr>
+                <td width="20%">Number of weeks requested</td>
+                <td th:text="${appointment.numberOfWeeks}" />
+            </tr>
+
+            <tr>
+                <td width="20%">Start Date</td>
+                <td th:text="${appointment.startDate}" />
+            </tr>
+
+        </table>
+
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
+                            data-target="#exampleModal">
+                        Confirm Booking
+                    </button>
+                </div>
+            </div>
+        </div>
 
 
 
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
 
-            <strong>Booking complete!</strong>
-            We will respond to inquiries on the form within <strong> 1-2 days </strong> . If the proposed rental period is not suitable for you, you can request an electronic change of time.
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        You are about to confirm booking for
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Nope</button>
+                        <a class="btn btn-primary"  th:text="Confirm" th:href="@{${T(com.example.hyperlearner.util.AppConstants).TH_VIEW_BOOKING_CONFIRM_LINK}+${appointment.appointmentId} }"></a>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
