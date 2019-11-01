@@ -3,6 +3,7 @@ package com.example.hyperlearner.dto;
 public class AppointmentForm {
 
 
+    private String appointmentId;
     private String email;
     private String phoneNumber;
     private String numberOfWeeks;
@@ -65,5 +66,14 @@ public class AppointmentForm {
 
     public void setStartDate(String startDate) {
         this.startDate = startDate;
+    }
+
+
+    public String getAppointmentId() {
+        return appointmentId;
+    }
+
+    public void setAppointmentId(String appointmentId) {
+        this.appointmentId = appointmentId;
     }
 }
