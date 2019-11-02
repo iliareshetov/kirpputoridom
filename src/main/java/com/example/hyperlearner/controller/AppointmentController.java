@@ -18,7 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+
+import java.util.Date;
 import java.util.Optional;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -38,8 +39,8 @@ public class AppointmentController {
     public String createBooking(@ModelAttribute AppointmentForm bookingForm, Model model) {
         Appointment appointment = new Appointment();
         appointment.setAppointmentReference(appointmentService.getAppointmentRef());
-        appointment.setCreateTime(AppUtils.getServerTime());
-        appointment.setRevisionTime(AppUtils.getServerTime());
+        appointment.setCreateTime(new Date());
+        appointment.setRevisionTime(new Date());
         appointment.setActiveFlag(true);
         appointment.setStatus(1);
         populateAppointment(bookingForm,appointment);
@@ -58,7 +59,7 @@ public class AppointmentController {
         appointment.setPhoneNumber(bookingForm.getPhoneNumber());
         appointment.setAmount(new BigDecimal(bookingForm.getAmount()));
         appointment.setNumberOfWeeks(Integer.parseInt(bookingForm.getNumberOfWeeks()));
-        appointment.setStartDate(AppUtils.parseDateWithoutTimeStamp(bookingForm.getStartDate()));
+        appointment.setStartDate(AppUtils.getDateFromString(bookingForm.getStartDate(),AppUtils.UI_DATE_FORMAT));
     }
 
 
@@ -70,6 +71,7 @@ public class AppointmentController {
         bookingForm.setPhoneNumber(appointment.getPhoneNumber());
         bookingForm.setAmount(appointment.getAmount().toString());
         bookingForm.setNumberOfWeeks(String.valueOf(appointment.getNumberOfWeeks()));
+        bookingForm.setStartDate(AppUtils.convertDateFormats(appointment.getStartDate(),AppUtils.UI_DATE_FORMAT));
         /*Date dbDate = AppUtils.parseDateWithoutTimeStamp(appointment.getStartDate().toString(),AppUtils.DB_DATE_FORMAT);
         Date uiDate = AppUtils.parseDateWithoutTimeStamp(dbDate.toString(),AppUtils.DB_DATE_FORMAT);
         bookingForm.setStartDate(date.toString());*/
@@ -90,7 +92,7 @@ public class AppointmentController {
         Optional<Appointment> appointment = appointmentService.getAppointmentById(id);
         Appointment appointment1 = appointment.get();
         appointment1.setStatus(2);
-        appointment1.setRevisionTime(AppUtils.getServerTime());
+        appointment1.setRevisionTime(new Date());
         appointmentService.saveAppointment(appointment1);
         return "redirect:/booking_list";
     }
@@ -119,7 +121,7 @@ public class AppointmentController {
     public String updateBooking(@ModelAttribute AppointmentForm bookingForm, Model model) {
         Optional<Appointment> appointmentOptional = appointmentService.getAppointmentById(bookingForm.getAppointmentId());
         Appointment appointment = appointmentOptional.get();
-        appointment.setRevisionTime(AppUtils.getServerTime());
+        appointment.setRevisionTime(new Date());
         populateAppointment(bookingForm,appointment);
         appointmentService.saveAppointment(appointment);
         model.addAttribute("appointment", appointment);

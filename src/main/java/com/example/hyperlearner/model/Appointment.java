@@ -7,8 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.math.BigDecimal;
-import java.sql.Date;
-import java.sql.Timestamp;
+import java.util.Date;
+
 
 @Entity
 public class Appointment {
@@ -22,9 +22,9 @@ public class Appointment {
     @Column(name="appointment_ref")
     private String appointmentReference;
     @Column(name="create_time")
-    private Timestamp createTime;
+    private Date createTime;
     @Column(name="revision_time")
-    private Timestamp revisionTime;
+    private Date revisionTime;
     @Column(name="status")
     private int status;
     @Column(name="active_flag")
@@ -62,19 +62,19 @@ public class Appointment {
         this.appointmentReference = appointmentReference;
     }
 
-    public Timestamp getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public Timestamp getRevisionTime() {
+    public Date getRevisionTime() {
         return revisionTime;
     }
 
-    public void setRevisionTime(Timestamp revisionTime) {
+    public void setRevisionTime(Date revisionTime) {
         this.revisionTime = revisionTime;
     }
 
