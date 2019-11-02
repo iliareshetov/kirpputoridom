@@ -72,9 +72,6 @@ public class AppointmentController {
         bookingForm.setAmount(appointment.getAmount().toString());
         bookingForm.setNumberOfWeeks(String.valueOf(appointment.getNumberOfWeeks()));
         bookingForm.setStartDate(AppUtils.convertDateFormats(appointment.getStartDate(),AppUtils.UI_DATE_FORMAT));
-        /*Date dbDate = AppUtils.parseDateWithoutTimeStamp(appointment.getStartDate().toString(),AppUtils.DB_DATE_FORMAT);
-        Date uiDate = AppUtils.parseDateWithoutTimeStamp(dbDate.toString(),AppUtils.DB_DATE_FORMAT);
-        bookingForm.setStartDate(date.toString());*/
 
     }
 
